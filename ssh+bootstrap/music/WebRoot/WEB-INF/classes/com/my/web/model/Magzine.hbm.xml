@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+	<class name="com.my.web.model.Magzine" table="tbl_mag">
+		<id name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="name"/>
+		<property name="num"/>
+		<property name="cover"/>
+		<property name="descri"/>
+		<property name="category"/>
+		<property name="hot"/>
+		
+		<!-- 一个菜单中包含多个子级菜单 -->
+		<!-- <set name="children" table="tbl_menu">
+			<key column="puuid"/>
+			<one-to-many class="cn.ncwu.erp.auth.menu.web.model.MenuModel"/>
+		</set> -->
+		
+		<!-- 与角色多对多 -->
+		<!-- <set name="roles" table="tbl_role_menu">
+			<key column="menuUuid"/>
+			<many-to-many 
+				column="roleUuid" 
+				class="cn.ncwu.erp.auth.role.web.model.RoleModel"
+			/>
+		</set> -->
+		
+		<!-- <set name="musics" table="tbl_mag_music">
+			<key column="magId"/>
+			<many-to-many column="musicId" class="com.my.web.model.Music"/>
+		</set> -->
+		<set name="messages" inverse="true">
+			<key column = "magId"/>
+			<one-to-many class="com.my.web.model.CollectMessage"/>
+		</set>
+		<set name="users" table="use_mag" >
+			<key column="magId"></key>
+			<many-to-many class="com.my.web.model.UserMessage" column="userId"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>       

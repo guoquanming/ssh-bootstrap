@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+	<class name="com.my.web.model.CollectMessage" table="tbl_collectmessage">
+		<id name="id" column="id">
+			<generator class="native"/>
+		</id>
+		<property name="userId" column="userId"></property>
+		<property name="magId"></property>
+	</class>
+</hibernate-mapping>       

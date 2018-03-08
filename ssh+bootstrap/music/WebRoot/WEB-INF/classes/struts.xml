@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- <constant name="struts.devMode" value="true" /> -->
+    <constant name="struts.ui.theme" value="simple" />
+    <package name="default" namespace="/" extends="struts-default">
+    	
+    	
+    	<action name="mag_*" class="com.my.web.action.MagAction" method="{1}">
+    		<result name="list">/main.jsp</result>
+    		<result name="player">/page/player.jsp</result>
+    		<result name="allList">/page/magzine.jsp</result>
+    		<result name="radio">/page/radio.jsp</result>
+    		<result name="maAdd">/page/background.jsp</result>
+    		<result name="main">/main.jsp</result>
+    		<result name="null">/main.jsp</result>
+    		<result name="to_main" type="redirectAction">mag_list</result>
+    		<result name="collectList">/page/mymiyin.jsp</result>
+    		<result name="tuijian">/page/mymiyin.jsp</result>
+    		
+    	</action>
+    	
+    </package>
+</struts>
